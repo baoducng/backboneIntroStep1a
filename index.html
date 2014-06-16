@@ -1,0 +1,73 @@
+<html>
+  <head>
+  	<script src="underscore.js"></script>
+  	<script src="backbone.js"></script>
+  </head>
+  <body>
+  	<script>
+  	  //This is meant to be a super bare bones Backbone example.  It only has one model, and has no views or collections.  It is all on one page.  This is the first in a series of three steps toward understanding Backbone.  First let's tackle models, then we will move onto views, and then onto collections.  Along the way, try to reference the documentation, as when you get to the real deal mytunes app, you will need to read the documentation many many times.
+
+  	  //First, we extend the Backbone.model class with any extra special bits about the specific model that we are working on.  This is where we would store information about what each model looks like in HTML.  It's also where any functionality about that model would be stored.  NOTE: a 'model' is just an object, basically.  'Model' is a technical term that we use in backbone to talk about the objects that we are going to be using in our application.
+  	  var Tweet = Backbone.Model.extend({  
+  	  	//in this case, we are not going to add any special stuff here.  This is just a bare bones Backbone model.
+      });
+
+      //by using the 'new' keyword here, we are creating an instance of the Tweet class.  Does it make sense to you that the lines above and the below lines could be compressed to one expression?  If not, pull a teacher over.  If you think you have it, scroll to the bottom for the answer (answer 1.).
+      var myNewTweet = new Tweet();
+
+      //Backbone gives us some pretty cool stuff.  One of the biggest things it bundles in is the ability to 'listen' for 'events'.  For example, if something in our model changes, we can 'listen' for that change and do something after the 'event' happens.  When we want to register a 'listener', we use the method '.on()'.  It takes two arguments.  The first is the event and the second is an anonymous function that does the thing you want to do when the 'event' happens.  Backbone gives you a couple events for free.  Most importantly, they give you 'change', which means that your model changed somehow, like it had an attribute added to the model, had one deleted, or had one changed. 
+
+      //example:
+      myNewTweet.on('change', function(){
+      	//we are just going to alert something when something is changed on the model.
+      	alert('Something in the model changed after this listener was registered!!!');
+      });
+
+      //ok, now, you have all the important bits to make the backbone event that is already registered fire.  How are we going to do that?  Well, we know that if we 'change' the myNewTweet object/model, it will fire the event.  So we just need to change that object/model somehow.  Backbone models act a little different than normal javascript objects.  One of the biggest things is that they have all sorts more methods that you can call on them.  The one we are going to want to use is called '.set', and you can read about it here:http://backbonejs.org/#Model-set
+
+      //Right below this comment, write the one-liner that will change this model/object and fire the event listener.  Can't figure it out?  Grab a teacher.  Feeling impatient?  Scroll to the bottom for the answer. 
+
+
+      //code here!
+
+  	</script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  Answers:
+  1. var myNewTweet = new Backbone.Model;
+  2. myNewTweet.set({anyAttribute: 'someChange'});
+
+-->
